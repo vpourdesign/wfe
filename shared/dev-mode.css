@@ -1,0 +1,213 @@
+/* =========================================================================
+   Dev mode — outils pour l'intégrateur
+   Invisible en mode présentation, s'active via bouton "DEV" ou Ctrl/Cmd+D.
+   ========================================================================= */
+
+.dev-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9998;
+  padding: 0.55rem 0.9rem;
+  font-family: "Oswald", system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: #fff;
+  background: rgba(16, 30, 48, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  opacity: 0.45;
+  transition:
+    opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dev-toggle:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+body.dev-mode .dev-toggle {
+  background: var(--wfe-coral, #BC4927);
+  border-color: transparent;
+  opacity: 1;
+}
+
+/* Top bar ---------------------------------------------------------------- */
+.dev-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9997;
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  background: #101E30;
+  color: #fff;
+  font-family: "Oswald", system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+  animation: dev-slide-down 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dev-slide-down {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+body.dev-mode .dev-bar { display: flex; }
+body.dev-mode { padding-top: 40px; }
+
+.dev-bar > span {
+  margin-right: auto;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.dev-bar button {
+  padding: 0.4rem 0.75rem;
+  background: transparent;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  font: inherit;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dev-bar button:hover {
+  background: var(--wfe-coral, #BC4927);
+  border-color: var(--wfe-coral, #BC4927);
+}
+
+/* Block outlines + toolbars --------------------------------------------- */
+body.dev-mode [data-block] {
+  position: relative;
+  outline: 1px dashed rgba(188, 73, 39, 0.35);
+  outline-offset: -1px;
+  transition: outline-color 0.18s;
+}
+
+body.dev-mode [data-block]:hover {
+  outline-color: var(--wfe-coral, #BC4927);
+}
+
+.dev-block-toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  background: var(--wfe-coral, #BC4927);
+  color: #fff;
+  font-family: "Oswald", system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 0 0 3px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  pointer-events: auto;
+}
+
+body.dev-mode [data-block]:hover > .dev-block-toolbar { display: flex; }
+
+.dev-block-name {
+  font-weight: 500;
+  opacity: 0.85;
+  padding-right: 0.4rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dev-block-toolbar button {
+  padding: 0.2rem 0.5rem;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.18s;
+}
+
+.dev-block-toolbar button:hover { background: rgba(255, 255, 255, 0.15); }
+
+/* Media wrappers + toolbars --------------------------------------------- */
+.dev-media-wrap {
+  position: relative;
+  display: block;
+}
+
+.dev-media-wrap.is-inline { display: inline-block; }
+
+.dev-media-toolbar {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 40;
+  display: none;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  background: rgba(16, 30, 48, 0.88);
+  backdrop-filter: blur(6px);
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dev-mode .dev-media-wrap:hover > .dev-media-toolbar { display: flex; }
+
+.dev-media-toolbar button {
+  padding: 0.35rem 0.55rem;
+  background: transparent;
+  color: #fff;
+  border: 0;
+  font-family: "Oswald", system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.18s;
+}
+
+.dev-media-toolbar button:hover { background: var(--wfe-coral, #BC4927); }
+
+/* Toast ------------------------------------------------------------------ */
+.dev-toast {
+  position: fixed;
+  bottom: 80px;
+  right: 18px;
+  z-index: 9999;
+  padding: 0.6rem 0.95rem;
+  background: #101E30;
+  color: #fff;
+  font-family: "Oswald", system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  border-radius: 3px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-left: 3px solid var(--wfe-coral, #BC4927);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.dev-toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

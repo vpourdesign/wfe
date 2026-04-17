@@ -1,0 +1,56 @@
+/* =========================================================================
+   WfE — Design tokens
+   Valeurs relevées EN LIVE sur wfedistillery.com/la-distillerie
+   ========================================================================= */
+
+:root {
+  /* === Couleurs (valeurs exactes DevTools) ============================= */
+  --wfe-dark:        #131313;        /* fond derrière tout (body) */
+  --wfe-dark-nav:    #0E1D2D;        /* bleu nuit (texte sur coral) */
+  --wfe-cream:       #F7EBE8;        /* fond contenu principal */
+  --wfe-coral:       #BC4927;        /* accent coral (titres, traits) */
+  --wfe-coral-btn:   #C0472F;        /* coral du bouton newsletter */
+  --wfe-coral-hover: #A23D1F;
+  --wfe-logo-orange: #BD5339;
+
+  /* === Texte =========================================================== */
+  --wfe-text-on-dark:       #FFFFFF;
+  --wfe-text-on-dark-muted: rgba(255, 255, 255, 0.75);
+  --wfe-text-on-cream:      #212529;      /* rgb(33,37,41) */
+  --wfe-text-on-cream-muted:#5A5A5A;
+
+  /* === Typographie ===================================================== */
+  --wfe-font-display: "Oswald", "Fjalla One", sans-serif;
+  --wfe-font-body:    "Oswald", "Helvetica Neue", Arial, sans-serif;
+
+  /* Tailles — le live utilise majoritairement 24px partout */
+  --wfe-text-body:     24px;          /* body + titres — 24px lh 36px */
+  --wfe-text-body-lh:  36px;
+  --wfe-text-heading:  24px;          /* INVITANT, ACCESSIBLE, etc. */
+  --wfe-text-sm:       17px;          /* bouton, meta */
+  --wfe-text-xs:       13px;          /* tagline, mentions */
+
+  /* === Espacements ===================================================== */
+  --wfe-gap-xs: 0.5rem;
+  --wfe-gap-sm: 1rem;
+  --wfe-gap-md: 1.5rem;
+  --wfe-gap-lg: 2.5rem;
+  --wfe-gap-xl: clamp(3rem, 4vw, 5rem);
+
+  /* === Layout ========================================================== */
+  --wfe-sidebar-width: 350px;         /* exactement comme le live */
+
+  /* === Divers ========================================================== */
+  --wfe-radius: 2px;
+  --wfe-line:   1px solid var(--wfe-coral);
+}
+
+/* Sur mobile : sidebar passe en barre horizontale simplifiée */
+@media (max-width: 860px) {
+  :root {
+    --wfe-sidebar-width: 0px;
+    --wfe-text-body: 18px;
+    --wfe-text-body-lh: 28px;
+    --wfe-text-heading: 22px;
+  }
+}

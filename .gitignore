@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+temporary screenshots/
+*.log
+
+# Fichiers source lourds, pas destinés au dépôt de maquettes
+*.ai
+*.psd
+*.mp4
+*.pdf
+
+# Dossiers de travail locaux
+Sophie Doyon/

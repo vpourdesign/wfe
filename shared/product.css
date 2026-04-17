@@ -1,0 +1,839 @@
+/* =========================================================================
+   WfE — Styles spécifiques à la page produit (Whisky 01ᵦ)
+   Réutilise les tokens + chrome partagés.
+   ========================================================================= */
+
+/* Accent tonique : petite classe utilitaire pour mettre en valeur
+   (même typo Oswald, juste couleur coral) */
+.wfe-accent { color: var(--wfe-coral); }
+
+/* ========================================================================= */
+/* REVEAL — animations subtiles d'apparition au scroll                       */
+/*   Appliqué via la classe [data-reveal], déclenché par IntersectionObserver */
+/* ========================================================================= */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+[data-reveal="image"] {
+  transform: translateY(18px) scale(1.015);
+  transition-duration: 1.1s;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger léger pour les enfants directs marqués reveal (cascade douce) */
+[data-reveal-group] > [data-reveal]:nth-child(1)  { transition-delay: 0s; }
+[data-reveal-group] > [data-reveal]:nth-child(2)  { transition-delay: 0.07s; }
+[data-reveal-group] > [data-reveal]:nth-child(3)  { transition-delay: 0.14s; }
+[data-reveal-group] > [data-reveal]:nth-child(4)  { transition-delay: 0.21s; }
+[data-reveal-group] > [data-reveal]:nth-child(5)  { transition-delay: 0.28s; }
+[data-reveal-group] > [data-reveal]:nth-child(6)  { transition-delay: 0.35s; }
+[data-reveal-group] > [data-reveal]:nth-child(7)  { transition-delay: 0.42s; }
+[data-reveal-group] > [data-reveal]:nth-child(8)  { transition-delay: 0.49s; }
+[data-reveal-group] > [data-reveal]:nth-child(9)  { transition-delay: 0.56s; }
+[data-reveal-group] > [data-reveal]:nth-child(10) { transition-delay: 0.63s; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ========================================================================= */
+/* CHAPTER HERO — image pleine largeur d'ouverture de page produit           */
+/*   Image via style="background-image: url('./...')" inline                  */
+/*   Titre en haut-gauche + ligne coppery qui s'étire vers la bouteille      */
+/* ========================================================================= */
+.wfe-chapter-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;       /* titre en haut-gauche, CTA en bas-gauche */
+  color: #fff;
+  padding: clamp(70px, 9vh, 120px) clamp(30px, 4vw, 60px);
+  overflow: hidden;
+  background-color: var(--wfe-dark-nav);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Overlay multi-couches — reprend le feeling copper/warm de la sidebar  */
+.wfe-chapter-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    /* assombrissement haut & bas */
+    linear-gradient(180deg,
+      rgba(10, 14, 22, 0.55) 0%,
+      rgba(10, 14, 22, 0.18) 35%,
+      rgba(10, 14, 22, 0.55) 100%),
+    /* chaleur coppery — halo coral doux depuis le centre-droit */
+    radial-gradient(ellipse at 65% 55%,
+      rgba(188, 73, 39, 0.22) 0%,
+      rgba(90, 45, 25, 0.12) 35%,
+      transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+
+/* 2e couche : un voile warm par-dessus en overlay doux */
+.wfe-chapter-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 60%,
+    rgba(255, 140, 70, 0.10) 0%,
+    transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+.wfe-chapter-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  width: 100%;
+  text-align: left;
+}
+
+.wfe-chapter-hero__eyebrow {
+  font-family: var(--wfe-font-body);
+  font-size: clamp(13px, 1.2vw, 15px);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  margin: 0 0 18px;
+}
+
+/* Titre : bloc inline, ligne mince positionnée SOUS le titre */
+.wfe-chapter-hero__title {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: 1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: #fff;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+}
+
+/* Subscript B : collé au 01 comme sur l'étiquette */
+.wfe-chapter-hero__title .wfe-sub {
+  font-size: 0.48em;
+  bottom: -0.18em;
+  margin-left: -0.04em;
+  font-weight: 600;
+}
+
+/* ----- CTA flottant bas-gauche : ancre animée vers la section suivante --- */
+.wfe-chapter-hero__cta {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 26px;
+  background: var(--wfe-coral);
+  color: #fff;
+  font-family: var(--wfe-font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid var(--wfe-coral);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wfe-chapter-hero__cta:hover {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+.wfe-chapter-hero__cta svg {
+  width: 16px;
+  height: 16px;
+  animation: wfe-bounce-y 1.8s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+.wfe-chapter-hero__cta .wfe-sub {
+  font-size: 0.7em;
+  bottom: -0.3em;
+  margin-left: -0.02em;
+}
+
+@keyframes wfe-bounce-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(5px); }
+}
+
+@media (max-width: 860px) {
+  .wfe-chapter-hero { min-height: 72vh; padding: 50px 25px; }
+  .wfe-chapter-hero__cta { font-size: 12px; padding: 14px 20px; letter-spacing: 0.15em; }
+}
+
+/* Indice subscript pour le "B" de 01ᵦ */
+.wfe-sub {
+  font-size: 0.45em;
+  vertical-align: baseline;
+  position: relative;
+  bottom: -0.2em;
+  font-weight: inherit;
+  letter-spacing: 0;
+  margin-left: 0.02em;
+}
+
+/* ========================================================================= */
+/* HERO PRODUIT (dark, deux colonnes : titre + photo bouteille)              */
+/* ========================================================================= */
+.wfe-product-hero {
+  background: var(--wfe-dark-nav);
+  color: var(--wfe-text-on-dark);
+  padding: 60px 40px 80px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  min-height: 70vh;
+  position: relative;
+  overflow: hidden;
+}
+.wfe-product-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(188,73,39,0.12), transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(70,100,140,0.2), transparent 60%);
+  pointer-events: none;
+}
+.wfe-product-hero__text { position: relative; z-index: 1; }
+
+.wfe-product-hero__eyebrow {
+  font-family: var(--wfe-font-body);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  margin: 0 0 20px;
+  font-weight: 500;
+}
+
+.wfe-product-hero__title {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 0.95;
+  font-weight: 600;
+  margin: 0 0 28px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.wfe-product-hero__title em {
+  font-style: normal;
+  color: inherit;
+  font-weight: inherit;
+}
+
+.wfe-product-hero__tagline {
+  font-family: var(--wfe-font-body);
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.5;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 36px;
+  max-width: 42ch;
+}
+
+.wfe-product-hero__meta {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 36px;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+}
+.wfe-product-hero__meta span strong {
+  display: block;
+  color: var(--wfe-coral);
+  font-family: var(--wfe-font-display);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin-top: 4px;
+}
+
+.wfe-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.wfe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  background: var(--wfe-coral);
+  color: #fff;
+  font-family: var(--wfe-font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid var(--wfe-coral);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wfe-btn:hover {
+  background: transparent;
+  color: var(--wfe-coral);
+  transform: translateY(-2px);
+}
+.wfe-btn--ghost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.wfe-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: #fff;
+}
+
+.wfe-product-hero__bottle {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.wfe-product-hero__bottle img {
+  max-height: 80vh;
+  width: auto;
+  margin: 0 auto;
+  filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.6));
+}
+
+@media (max-width: 860px) {
+  .wfe-product-hero {
+    grid-template-columns: 1fr;
+    padding: 40px 25px 60px;
+    gap: 40px;
+  }
+  .wfe-product-hero__bottle img { max-height: 60vh; }
+}
+
+/* ========================================================================= */
+/* LEAD STATEMENT (cream, grand texte épuré)                                 */
+/* ========================================================================= */
+.wfe-lead {
+  padding: 100px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;                /* centre verticalement texte + média */
+}
+.wfe-lead > * { align-self: center; }
+.wfe-lead__eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  font-weight: 500;
+  margin: 0 0 20px;
+}
+.wfe-lead__title {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--wfe-coral);
+  margin: 0 0 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.wfe-lead__title em {
+  font-style: normal;
+  font-weight: inherit;
+  color: inherit;
+}
+.wfe-lead__body {
+  font-family: var(--wfe-font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--wfe-coral);
+  font-weight: 300;
+}
+.wfe-lead__body p { margin: 0 0 16px; }
+.wfe-lead__media {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 6px;                 /* léger arrondi demandé */
+  box-shadow:
+    0 1px 2px rgba(20, 15, 10, 0.08),
+    0 18px 50px rgba(20, 15, 10, 0.12);
+}
+.wfe-lead__media img,
+.wfe-lead__media video,
+.wfe-lead__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 860px) {
+  .wfe-lead { grid-template-columns: 1fr; padding: 60px 25px; gap: 40px; }
+}
+
+/* ========================================================================= */
+/* MYSTÈRES — slider des 7 symboles (DARK)                                   */
+/* ========================================================================= */
+.wfe-mysteries {
+  background: #0A1628;
+  color: #fff;
+  padding: 0 0 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bande marquee des 6 mini-symboles — défile de gauche à droite en boucle */
+.wfe-marquee {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding: 34px 0;
+  margin-bottom: 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+.wfe-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2vw, 32px);
+  width: max-content;
+  animation: wfe-marquee 38s linear infinite;
+}
+
+.wfe-marquee__track img {
+  width: clamp(64px, 7vw, 100px);
+  height: auto;
+  flex-shrink: 0;
+  opacity: 0.55;
+  filter: brightness(1.3) contrast(1.1);
+  transition: opacity 0.3s;
+}
+
+.wfe-marquee:hover .wfe-marquee__track { animation-play-state: paused; }
+.wfe-marquee:hover .wfe-marquee__track img { opacity: 0.9; }
+
+/* Contenu dupliqué 2x → animation de -50% à 0 = défilement gauche→droite */
+@keyframes wfe-marquee {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wfe-marquee__track { animation: none; transform: translateX(-25%); }
+}
+.wfe-mysteries::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(50, 80, 130, 0.35), transparent 60%),
+    radial-gradient(ellipse at 80% 70%, rgba(20, 35, 60, 0.8), transparent 65%);
+  pointer-events: none;
+}
+
+.wfe-mysteries__intro {
+  max-width: 760px;
+  margin: 0 auto 70px;
+  padding: 0 40px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.wfe-mysteries__eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  font-weight: 500;
+  margin: 0 0 20px;
+}
+.wfe-mysteries__title {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(30px, 4.2vw, 52px);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 0 0 24px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.wfe-mysteries__title em {
+  font-style: normal;
+  font-weight: inherit;
+  color: inherit;
+}
+.wfe-mysteries__sub {
+  font-family: var(--wfe-font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 300;
+  max-width: 52ch;
+  margin: 0 auto;
+}
+
+.wfe-slider {
+  position: relative;
+  z-index: 1;
+}
+.wfe-slider__track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0 calc(50vw - 280px);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.wfe-slider__track::-webkit-scrollbar { display: none; }
+
+.wfe-slider__slide {
+  flex: 0 0 560px;
+  max-width: 90vw;
+  aspect-ratio: 1;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 20px 60px rgba(0, 0, 0, 0.35);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.45;
+  transform: scale(0.92);
+}
+.wfe-slider__slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+.wfe-slider__slide img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+.wfe-slider__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 50px;
+  position: relative;
+  z-index: 1;
+}
+.wfe-slider__arrow {
+  width: 48px; height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wfe-slider__arrow:hover {
+  border-color: var(--wfe-coral);
+  color: var(--wfe-coral);
+  transform: scale(1.08);
+}
+.wfe-slider__dots {
+  display: flex;
+  gap: 10px;
+}
+.wfe-slider__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wfe-slider__dot.is-active {
+  width: 32px;
+  border-radius: 4px;
+  background: var(--wfe-coral);
+}
+.wfe-slider__counter {
+  font-family: var(--wfe-font-display);
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.1em;
+  min-width: 70px;
+  text-align: center;
+}
+.wfe-slider__counter em {
+  color: var(--wfe-coral);
+  font-style: normal;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .wfe-slider__track { padding: 0 12%; }
+  .wfe-slider__slide { flex: 0 0 75%; }
+}
+
+/* ========================================================================= */
+/* PROFIL SENSORIEL (cream, liste verticale élégante)                        */
+/* ========================================================================= */
+.wfe-profile {
+  padding: 100px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 60px;
+  align-items: start;
+}
+.wfe-profile__title {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(28px, 3.4vw, 40px);
+  color: var(--wfe-coral);
+  line-height: 1.1;
+  margin: 0 0 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.wfe-profile__eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+.wfe-profile__media {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.wfe-profile__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.wfe-profile__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.wfe-profile__item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 20px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(188, 73, 39, 0.2);
+}
+.wfe-profile__item:last-child { border-bottom: 1px solid rgba(188, 73, 39, 0.2); }
+.wfe-profile__label {
+  font-family: var(--wfe-font-body);
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  font-weight: 500;
+  padding-top: 4px;
+  writing-mode: horizontal-tb;
+}
+.wfe-profile__text {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--wfe-coral);
+  font-weight: 300;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .wfe-profile { grid-template-columns: 1fr; padding: 60px 25px; gap: 40px; }
+  .wfe-profile__item { grid-template-columns: 80px 1fr; gap: 14px; }
+}
+
+/* ========================================================================= */
+/* PARTENAIRE — Val Caudalie                                                 */
+/* ========================================================================= */
+.wfe-partner {
+  background: var(--wfe-cream-2, #F1DFD9);
+  padding: 80px 40px;
+  text-align: center;
+}
+.wfe-partner__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.wfe-partner__eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+.wfe-partner__title {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  color: var(--wfe-coral);
+  line-height: 1.15;
+  font-weight: 600;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.wfe-partner__body {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--wfe-coral);
+  font-weight: 300;
+  margin: 0;
+}
+
+/* ========================================================================= */
+/* SPECS (tableau + achat)                                                   */
+/* ========================================================================= */
+.wfe-specs {
+  padding: 70px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.wfe-specs__title {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(28px, 3.4vw, 40px);
+  color: var(--wfe-coral);
+  line-height: 1.1;
+  margin: 0 0 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.wfe-specs__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+.wfe-specs__table th,
+.wfe-specs__table td {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(188, 73, 39, 0.2);
+  font-size: 15px;
+  color: var(--wfe-coral);
+  font-weight: 300;
+  text-align: left;
+  vertical-align: baseline;
+  line-height: 1.4;
+}
+.wfe-specs__table th {
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 13px;
+  width: 42%;
+}
+.wfe-specs__table td { text-align: right; }
+.wfe-specs__media {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  margin-top: -15px;                /* monte la bouteille de 15px */
+}
+.wfe-specs__media img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 860px) {
+  .wfe-specs { grid-template-columns: 1fr; padding: 60px 25px; gap: 40px; }
+}
+
+/* ========================================================================= */
+/* CTA ACHAT (coral block, call to action final)                             */
+/* ========================================================================= */
+.wfe-cta {
+  background: var(--wfe-coral);
+  color: #fff;
+  padding: 80px 40px;
+  text-align: center;
+}
+.wfe-cta__eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  margin: 0 0 18px;
+}
+.wfe-cta__title {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.15;
+  font-weight: 600;
+  margin: 0 0 14px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+.wfe-cta__sub {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 52ch;
+  margin: 0 auto 34px;
+  font-weight: 300;
+}
+.wfe-cta .wfe-btn-row { justify-content: center; }
+.wfe-cta .wfe-btn {
+  background: #fff;
+  color: var(--wfe-coral);
+  border-color: #fff;
+}
+.wfe-cta .wfe-btn:hover {
+  background: transparent;
+  color: #fff;
+}
+.wfe-cta .wfe-btn--ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.wfe-cta .wfe-btn--ghost:hover {
+  background: #fff;
+  color: var(--wfe-coral);
+  border-color: #fff;
+}

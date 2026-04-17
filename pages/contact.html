@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WfE — Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/tokens.css">
+  <link rel="stylesheet" href="../shared/chrome.css">
+  <link rel="stylesheet" href="../shared/dev-mode.css">
+  <script>window.WFE_SHARED = '../shared/'; window.WFE_HUB = '../index.html';</script>
+  <style>
+    .wfe-coming-soon {
+      min-height: 80vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 3rem;
+    }
+    .wfe-coming-soon__num {
+      font-family: var(--wfe-font-display);
+      font-size: clamp(4rem, 12vw, 8rem);
+      color: var(--wfe-coral);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .wfe-coming-soon__title {
+      font-family: var(--wfe-font-display);
+      font-size: var(--wfe-text-xl);
+      margin: 0 0 0.75rem;
+    }
+    .wfe-coming-soon__sub {
+      font-size: var(--wfe-text-sm);
+      color: var(--wfe-text-on-cream-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wfe-layout">
+
+  <aside class="wfe-sidebar" data-block="Sidebar">
+    <a href="../index.html" class="wfe-sidebar__logo" aria-label="Retour à l'accueil">
+      <img src="../logo.svg" alt="WfE — Whisky For Everyone">
+      <small>Whisky pour tous</small>
+    </a>
+    <nav class="wfe-sidebar__nav" aria-label="Principale">
+      <a href="la-distillerie.html" class="wfe-sidebar__nav-item">
+        <span class="wfe-sidebar__nav-num">01</span>
+        <span class="wfe-sidebar__nav-label">La Distillerie</span>
+      </a>
+      <a href="le-whisky.html" class="wfe-sidebar__nav-item">
+        <span class="wfe-sidebar__nav-num">02</span>
+        <span class="wfe-sidebar__nav-label">Le Whisky</span>
+      </a>
+      <a href="contact.html" class="wfe-sidebar__nav-item" aria-current="page">
+        <span class="wfe-sidebar__nav-num">03</span>
+        <span class="wfe-sidebar__nav-label">Contact</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main class="wfe-main">
+    <section class="wfe-coming-soon" data-block="Placeholder — Contact">
+      <div>
+        <div class="wfe-coming-soon__num">03</div>
+        <h1 class="wfe-coming-soon__title">CONTACT.</h1>
+        <p class="wfe-coming-soon__sub">Maquette à venir</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="../shared/dev-mode.js" defer></script>
+</body>
+</html>

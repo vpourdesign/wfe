@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WfE — Whisky 01ᵦ · Finition en fût de cidre de glace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../shared/tokens.css">
+  <link rel="stylesheet" href="../../shared/chrome.css">
+  <link rel="stylesheet" href="../../shared/product.css">
+  <link rel="stylesheet" href="../../shared/dev-mode.css">
+  <script>window.WFE_SHARED = '../../shared/'; window.WFE_HUB = '../../index.html';</script>
+</head>
+<body>
+
+<div class="wfe-layout">
+
+  <!-- ========================================================= -->
+  <!-- SIDEBAR                                                     -->
+  <!-- ========================================================= -->
+  <aside class="wfe-sidebar" data-block="Sidebar">
+    <a href="../../index.html" class="wfe-sidebar__logo" aria-label="WfE — Retour à l'accueil">
+      <img src="../../logo.svg" alt="WfE — Whisky For Everyone">
+      <small>Whisky pour tous</small>
+    </a>
+    <nav class="wfe-sidebar__nav" aria-label="Principale">
+      <a href="../la-distillerie.html" class="wfe-sidebar__nav-item">
+        <span class="wfe-sidebar__nav-num">01</span>
+        <span class="wfe-sidebar__nav-label">La Distillerie</span>
+      </a>
+      <a href="../le-whisky.html" class="wfe-sidebar__nav-item" aria-current="page">
+        <span class="wfe-sidebar__nav-num">02</span>
+        <span class="wfe-sidebar__nav-label">Le Whisky</span>
+      </a>
+      <a href="../contact.html" class="wfe-sidebar__nav-item">
+        <span class="wfe-sidebar__nav-num">03</span>
+        <span class="wfe-sidebar__nav-label">Contact</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ========================================================= -->
+  <!-- MAIN                                                        -->
+  <!-- ========================================================= -->
+  <main class="wfe-main">
+
+    <div class="wfe-topbar" data-block="Top bar — langue">
+      <a href="#" class="wfe-topbar__lang">EN</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- CHAPTER HERO : image pleine largeur + titre centré            -->
+    <!-- ============================================================ -->
+    <section class="wfe-chapter-hero"
+             style="background-image: url('./1.jpg');"
+             data-block="Chapter hero — Notre premier chapitre">
+      <div class="wfe-chapter-hero__inner" data-reveal-group>
+        <p class="wfe-chapter-hero__eyebrow" data-reveal>Notre premier chapitre</p>
+        <h1 class="wfe-chapter-hero__title" data-reveal>
+          Blend 01<span class="wfe-sub">B</span>
+        </h1>
+      </div>
+
+      <a href="#decouvrir" class="wfe-chapter-hero__cta" data-reveal>
+        <span>Découvrir Blend 01<span class="wfe-sub">B</span></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- HERO PRODUIT : titre + bouteille                              -->
+    <!-- ============================================================ -->
+    <section id="decouvrir" class="wfe-product-hero" data-block="Hero — Whisky 01b">
+
+      <div class="wfe-product-hero__text" data-reveal-group>
+        <p class="wfe-product-hero__eyebrow" data-reveal>Finition en fût de cidre de glace</p>
+        <h1 class="wfe-product-hero__title" data-reveal>
+          Whisky 01<span class="wfe-sub">B</span>
+        </h1>
+        <p class="wfe-product-hero__tagline" data-reveal>
+          Un assemblage canadien de maïs, seigle, blé et orge malté — affiné en fûts de cidre de glace pour une élégance fruitée inattendue.
+        </p>
+        <div class="wfe-product-hero__meta" data-reveal>
+          <span>Alcool <strong>42&nbsp;%</strong></span>
+          <span>Volume <strong>700&nbsp;ml · 200&nbsp;ml</strong></span>
+        </div>
+        <div class="wfe-btn-row" data-reveal>
+          <a class="wfe-btn" href="#achat">Où l'acheter</a>
+          <a class="wfe-btn wfe-btn--ghost" href="./WfE_FicheProduit_B01_v3_VF.pdf" target="_blank" rel="noopener">
+            Fiche technique (PDF)
+          </a>
+        </div>
+      </div>
+      <div class="wfe-product-hero__bottle" data-reveal="image">
+        <img src="./3b.jpg" alt="Bouteille WfE Whisky 01ᵦ">
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- LEAD : Pas besoin d'être expert                               -->
+    <!-- ============================================================ -->
+    <section class="wfe-lead" data-block="Lead — Pas besoin d'être expert">
+      <div data-reveal-group>
+        <p class="wfe-lead__eyebrow" data-reveal>Notre promesse</p>
+        <h2 class="wfe-lead__title" data-reveal>Pas besoin d'être expert. <em>Juste curieux.</em></h2>
+        <div class="wfe-lead__body" data-reveal>
+          <p>WfE se donne pour mission de faire (re)découvrir le whisky au plus grand nombre et de le rendre accessible en le réinventant — sans jamais trahir l'essence des grands classiques.</p>
+          <p>Animés par l'ouverture, l'audace et un savoir-faire rigoureux, nous déclinons le whisky pour inviter tous les palais à l'exploration.</p>
+        </div>
+      </div>
+      <div class="wfe-lead__media" data-reveal="image">
+        <video
+          class="wfe-lead__video"
+          src="./produit.webm"
+          autoplay muted loop playsinline
+          preload="metadata"
+          aria-label="Vidéo du produit Whisky 01ᵦ">
+        </video>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MYSTÈRES : 7 symboles en slider                               -->
+    <!-- ============================================================ -->
+    <section class="wfe-mysteries" data-block="Mystères — Slider 7 symboles">
+      <div class="wfe-marquee" aria-hidden="true" data-block="Marquee mini-symboles">
+        <div class="wfe-marquee__track">
+          <!-- Moitié A -->
+          <img src="./minisymboles1.png" alt="">
+          <img src="./minisymboles2.png" alt="">
+          <img src="./minisymboles3.png" alt="">
+          <img src="./minisymboles4.png" alt="">
+          <img src="./minisymboles5.png" alt="">
+          <img src="./minisymboles6.png" alt="">
+          <img src="./minisymboles1.png" alt="">
+          <img src="./minisymboles2.png" alt="">
+          <img src="./minisymboles3.png" alt="">
+          <img src="./minisymboles4.png" alt="">
+          <img src="./minisymboles5.png" alt="">
+          <img src="./minisymboles6.png" alt="">
+          <img src="./minisymboles1.png" alt="">
+          <img src="./minisymboles2.png" alt="">
+          <img src="./minisymboles3.png" alt="">
+          <img src="./minisymboles4.png" alt="">
+          <img src="./minisymboles5.png" alt="">
+          <img src="./minisymboles6.png" alt="">
+          <!-- Moitié B (copie identique pour loop seamless) -->
+          <img src="./minisymboles1.png" alt="">
+          <img src="./minisymboles2.png" alt="">
+          <img src="./minisymboles3.png" alt="">
+          <img src="./minisymboles4.png" alt="">
+          <img src="./minisymboles5.png" alt="">
+          <img src="./minisymboles6.png" alt="">
+          <img src="./minisymboles1.png" alt="">
+          <img src="./minisymboles2.png" alt="">
+          <img src="./minisymboles3.png" alt="">
+          <img src="./minisymboles4.png" alt="">
+          <img src="./minisymboles5.png" alt="">
+          <img src="./minisymboles6.png" alt="">
+          <img src="./minisymboles1.png" alt="">
+          <img src="./minisymboles2.png" alt="">
+          <img src="./minisymboles3.png" alt="">
+          <img src="./minisymboles4.png" alt="">
+          <img src="./minisymboles5.png" alt="">
+          <img src="./minisymboles6.png" alt="">
+        </div>
+      </div>
+
+      <div class="wfe-mysteries__intro" data-reveal-group>
+        <p class="wfe-mysteries__eyebrow" data-reveal>Les mystères du Blend 01ᵦ</p>
+        <h2 class="wfe-mysteries__title" data-reveal>
+          Chaque gorgée <em>raconte</em><br>un fragment d'alchimie.
+        </h2>
+        <p class="wfe-mysteries__sub" data-reveal>
+          Sur l'étiquette du Blend 01ᵦ, sept symboles sont gravés. Chacun évoque un geste, un matériau, une étape de la transformation — du grain brut jusqu'au verre.
+        </p>
+      </div>
+
+      <div class="wfe-slider" data-slider data-reveal="image">
+        <div class="wfe-slider__track" data-slider-track>
+          <div class="wfe-slider__slide is-active" data-slide="0">
+            <img src="./Symboles1.jpg" alt="Les mystères du Blend 01ᵦ — introduction">
+          </div>
+          <div class="wfe-slider__slide" data-slide="1">
+            <img src="./Symboles2.jpg" alt="Verre — symbole de transparence">
+          </div>
+          <div class="wfe-slider__slide" data-slide="2">
+            <img src="./Symboles3.jpg" alt="Symbole VB — assemblage">
+          </div>
+          <div class="wfe-slider__slide" data-slide="3">
+            <img src="./Symboles4.jpg" alt="Distillation — alchimie de la vapeur">
+          </div>
+          <div class="wfe-slider__slide" data-slide="4">
+            <img src="./Symboles5.jpg" alt="Symbole du fût — vieillissement">
+          </div>
+          <div class="wfe-slider__slide" data-slide="5">
+            <img src="./Symboles6.jpg" alt="Symbole des grains — céréales">
+          </div>
+          <div class="wfe-slider__slide" data-slide="6">
+            <img src="./Symboles7.jpg" alt="Cuivre — métal des alchimistes">
+          </div>
+        </div>
+
+        <div class="wfe-slider__nav">
+          <button class="wfe-slider__arrow" data-slider-prev aria-label="Symbole précédent">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M15 6l-6 6 6 6"/>
+            </svg>
+          </button>
+          <div class="wfe-slider__dots" data-slider-dots></div>
+          <span class="wfe-slider__counter" data-slider-counter><em>1</em> / 7</span>
+          <button class="wfe-slider__arrow" data-slider-next aria-label="Symbole suivant">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M9 6l6 6-6 6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PROFIL SENSORIEL                                              -->
+    <!-- ============================================================ -->
+    <section class="wfe-profile" data-block="Profil sensoriel">
+      <div data-reveal-group>
+        <p class="wfe-profile__eyebrow" data-reveal>Dégustation</p>
+        <h2 class="wfe-profile__title" data-reveal>Profil<br>sensoriel.</h2>
+        <div class="wfe-profile__media" style="margin-top: 30px;" data-reveal="image">
+          <img src="./2b.jpg" alt="Mise en scène Whisky 01ᵦ — bouteilles 700 ml et 200 ml avec verre et grains">
+        </div>
+      </div>
+
+      <ul class="wfe-profile__list" data-reveal-group>
+        <li class="wfe-profile__item" data-reveal>
+          <span class="wfe-profile__label">Robe</span>
+          <p class="wfe-profile__text">Ambre pâle aux reflets cuivrés. Éclatante et lumineuse à la lumière naturelle.</p>
+        </li>
+        <li class="wfe-profile__item" data-reveal>
+          <span class="wfe-profile__label">Aspect</span>
+          <p class="wfe-profile__text">Brillant et limpide, avec une belle transparence et une viscosité marquée. Les jambes descendent lentement et régulièrement, signe de maturité et d'équilibre.</p>
+        </li>
+        <li class="wfe-profile__item" data-reveal>
+          <span class="wfe-profile__label">Nez</span>
+          <p class="wfe-profile__text">Bouquet délicat et raffiné, alliant complexité aromatique subtile et parfaite harmonie. Vanille douce, caramel léger et chêne toasté. Le seigle canadien apporte des notes épicées, équilibrées par la rondeur céréalière du blé. L'affinage en fût de cidre de glace ajoute une subtile touche fruitée de pomme et de poire en arrière-plan.</p>
+        </li>
+        <li class="wfe-profile__item" data-reveal>
+          <span class="wfe-profile__label">Bouche</span>
+          <p class="wfe-profile__text">Attaque douce et enveloppante, marquée par la douceur miellée du maïs, équilibrée par les épices du seigle et une pointe poivrée. En milieu de bouche, caramel, chêne toasté et légères notes fruitées. Le blé apporte rondeur et souplesse, tandis que le whisky de maïs donne de la structure et de la chaleur.</p>
+        </li>
+        <li class="wfe-profile__item" data-reveal>
+          <span class="wfe-profile__label">Finale</span>
+          <p class="wfe-profile__text">Moyenne à longue, elle s'étire avec chaleur, révélant une persistance élégante de chêne, de vanille et d'épices douces. Une touche subtile de pomme acidulée caresse le palais, sans jamais dominer — laissant place à une sensation aussi longue qu'harmonieuse.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PARTENAIRE : Val Caudalie                                     -->
+    <!-- ============================================================ -->
+    <section class="wfe-partner" data-block="Partenaire — Val Caudalie">
+      <div class="wfe-partner__inner" data-reveal-group>
+        <p class="wfe-partner__eyebrow" data-reveal>En partenariat avec</p>
+        <h2 class="wfe-partner__title" data-reveal>Val Caudalie, artisan du cidre de glace.</h2>
+        <p class="wfe-partner__body" data-reveal>
+          Les fûts qui affinent le Blend 01ᵦ proviennent de Val Caudalie — vignoble et cidrerie du Québec dont le cidre de glace est élaboré avec la même rigueur que notre whisky. Cette rencontre donne naissance à une finition unique&nbsp;: une douceur fruitée de pomme et de poire, posée en filigrane sur le chêne toasté.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- INFOS GÉNÉRALES                                               -->
+    <!-- ============================================================ -->
+    <section class="wfe-specs" data-block="Infos générales">
+      <div class="wfe-specs__media" data-reveal="image">
+        <img src="./fondblanc.png" alt="Bouteille Whisky 01ᵦ — fond blanc">
+      </div>
+      <div>
+        <h2 class="wfe-specs__title" data-reveal>Informations<br>générales.</h2>
+        <table class="wfe-specs__table">
+          <tbody data-reveal-group>
+            <tr data-reveal><th>Catégorie</th><td>Whisky</td></tr>
+            <tr data-reveal><th>Degré d'alcool</th><td>42 %</td></tr>
+            <tr data-reveal><th>Pays d'origine</th><td>Canada — élaboré au Québec</td></tr>
+            <tr data-reveal><th>Composition</th><td>Maïs · Seigle · Blé · Orge malté</td></tr>
+            <tr data-reveal><th>Producteur</th><td>Distillerie WfE</td></tr>
+            <tr data-reveal><th>Finition</th><td>Fût de cidre de glace</td></tr>
+            <tr data-reveal><th>Volumes disponibles</th><td>700 ml, 200 ml</td></tr>
+            <tr data-reveal><th>Filtration</th><td>À froid 5 μm et 1 μm</td></tr>
+            <tr data-reveal><th>Code SAQ 700 ml</th><td>15614718</td></tr>
+            <tr data-reveal><th>Code SAQ 200 ml</th><td>15594083</td></tr>
+          </tbody>
+        </table>
+        <a class="wfe-btn wfe-btn--ghost" href="./WfE_FicheProduit_B01_v3_VF.pdf" target="_blank" rel="noopener" style="color: var(--wfe-coral); border-color: var(--wfe-coral);">
+          Télécharger la fiche technique (PDF)
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CTA ACHAT                                                     -->
+    <!-- ============================================================ -->
+    <section id="achat" class="wfe-cta" data-block="CTA achat — SAQ / LCBO" data-reveal-group>
+      <p class="wfe-cta__eyebrow" data-reveal>Où l'acheter</p>
+      <h2 class="wfe-cta__title" data-reveal>Disponible à la SAQ et à la LCBO.</h2>
+      <p class="wfe-cta__sub" data-reveal>
+        Recommandation : pur ou sur glace. Quelques gouttes d'eau amplifient les arômes. Remplace avantageusement le bourbon dans tout cocktail classique. De préférence, en bonne compagnie.
+      </p>
+      <div class="wfe-btn-row" data-reveal>
+        <a class="wfe-btn" href="https://www.saq.com/fr/produits/15614718" target="_blank" rel="noopener">SAQ · 700 ml</a>
+        <a class="wfe-btn" href="https://www.saq.com/fr/produits/15594083" target="_blank" rel="noopener">SAQ · 200 ml</a>
+        <a class="wfe-btn wfe-btn--ghost" href="https://www.lcbo.com/en/search/whisky+wfe" target="_blank" rel="noopener">LCBO</a>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER NEWSLETTER                                             -->
+    <!-- ============================================================ -->
+    <footer class="wfe-footer" data-block="Footer — Newsletter">
+      <h2 class="wfe-footer__lead">Le meilleur reste à venir.</h2>
+      <p class="wfe-footer__sub">Abonnez-vous pour être les premiers informés.</p>
+      <form class="wfe-newsletter" onsubmit="event.preventDefault();">
+        <input type="email" class="wfe-newsletter__input" placeholder="info@distilleriewfe.com" required>
+        <button type="submit" class="wfe-newsletter__submit">Inscrivez-vous</button>
+      </form>
+      <p class="wfe-colophon">© 2026, Distillerie WfE</p>
+    </footer>
+
+  </main>
+</div>
+
+<!-- ================================================================== -->
+<!-- SLIDER LOGIC (vanilla JS)                                            -->
+<!-- ================================================================== -->
+<script>
+(function () {
+  const root = document.querySelector('[data-slider]');
+  if (!root) return;
+
+  const track = root.querySelector('[data-slider-track]');
+  const slides = [...track.querySelectorAll('.wfe-slider__slide')];
+  const dotsContainer = root.querySelector('[data-slider-dots]');
+  const counter = root.querySelector('[data-slider-counter]');
+  const prevBtn = root.querySelector('[data-slider-prev]');
+  const nextBtn = root.querySelector('[data-slider-next]');
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'wfe-slider__dot' + (i === 0 ? ' is-active' : '');
+    d.type = 'button';
+    d.setAttribute('aria-label', `Aller au symbole ${i + 1}`);
+    d.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(d);
+  });
+  const dots = [...dotsContainer.children];
+
+  function currentIndex() {
+    const center = track.scrollLeft + track.clientWidth / 2;
+    let bestIdx = 0, bestDist = Infinity;
+    slides.forEach((s, i) => {
+      const mid = s.offsetLeft + s.offsetWidth / 2;
+      const d = Math.abs(mid - center);
+      if (d < bestDist) { bestDist = d; bestIdx = i; }
+    });
+    return bestIdx;
+  }
+
+  function setActive(i) {
+    slides.forEach((s, j) => s.classList.toggle('is-active', j === i));
+    dots.forEach((d, j) => d.classList.toggle('is-active', j === i));
+    counter.innerHTML = `<em>${i + 1}</em> / ${slides.length}`;
+  }
+
+  function goTo(i) {
+    i = Math.max(0, Math.min(slides.length - 1, i));
+    const s = slides[i];
+    const target = s.offsetLeft - (track.clientWidth - s.offsetWidth) / 2;
+    track.scrollTo({ left: target, behavior: 'smooth' });
+  }
+
+  let scrollTimer;
+  track.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => setActive(currentIndex()), 80);
+  }, { passive: true });
+
+  prevBtn.addEventListener('click', () => goTo(currentIndex() - 1));
+  nextBtn.addEventListener('click', () => goTo(currentIndex() + 1));
+
+  // Keyboard navigation
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(currentIndex() - 1); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); goTo(currentIndex() + 1); }
+  });
+  root.setAttribute('tabindex', '0');
+
+  // Initial centering
+  setTimeout(() => goTo(0), 50);
+})();
+</script>
+
+<!-- Reveal subtil au scroll (fade + slight translateY) ---------------- -->
+<script>
+(function () {
+  const els = document.querySelectorAll('[data-reveal]');
+  if (!('IntersectionObserver' in window) || !els.length) {
+    els.forEach(e => e.classList.add('is-visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+
+<script src="../../shared/dev-mode.js" defer></script>
+</body>
+</html>

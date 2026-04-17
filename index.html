@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WfE — Maquettes web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared/tokens.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--wfe-font-body);
+      font-weight: 300;
+      background: var(--wfe-dark);
+      color: var(--wfe-text-on-dark);
+      min-height: 100vh;
+      padding: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 4vw, 3rem);
+    }
+    .hub {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hub__head { margin-bottom: 3rem; }
+    .hub__title {
+      font-family: var(--wfe-font-display);
+      font-size: var(--wfe-text-2xl);
+      margin: 0 0 0.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hub__sub {
+      font-size: var(--wfe-text-sm);
+      color: var(--wfe-text-on-dark-muted);
+      margin: 0;
+      max-width: 60ch;
+      line-height: 1.7;
+    }
+    .hub__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .hub__card {
+      display: block;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      padding: 0;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      color: inherit;
+    }
+    .hub__card:hover {
+      border-color: var(--wfe-coral);
+      transform: translateY(-2px);
+      background: rgba(188, 73, 39, 0.05);
+    }
+    .hub__card--soon { opacity: 0.35; pointer-events: none; }
+    .hub__thumb {
+      aspect-ratio: 16 / 10;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #1A2B42, #0B1522);
+      color: var(--wfe-coral);
+      font-family: var(--wfe-font-display);
+      font-size: 3rem;
+      letter-spacing: 0.02em;
+    }
+    .hub__meta {
+      padding: 1rem 1.2rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .hub__num {
+      font-family: var(--wfe-font-display);
+      font-size: 0.8rem;
+      color: var(--wfe-coral);
+      letter-spacing: 0.3em;
+    }
+    .hub__name {
+      font-family: var(--wfe-font-display);
+      font-size: 1.3rem;
+      letter-spacing: 0.02em;
+      color: #fff;
+    }
+    .hub__desc {
+      font-size: 0.8rem;
+      color: var(--wfe-text-on-dark-muted);
+      letter-spacing: 0.03em;
+    }
+    .hub__footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--wfe-text-on-dark-muted);
+      line-height: 1.8;
+    }
+    .hub__footer code {
+      background: rgba(255, 255, 255, 0.07);
+      padding: 0.2em 0.45em;
+      border-radius: 3px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.85em;
+      color: var(--wfe-coral);
+    }
+  </style>
+</head>
+<body>
+  <div class="hub">
+    <header class="hub__head">
+      <h1 class="hub__title">Maquettes WfE</h1>
+      <p class="hub__sub">Ensemble des maquettes destinées à l'intégration WordPress. Chaque page reproduit la charte du site existant (fonts, palette, layout sidebar fixe). Active le <strong>Mode intégrateur</strong> (bouton <code>DEV</code> ou <code>Ctrl/Cmd + D</code>) sur une maquette pour copier les blocs ou télécharger les assets.</p>
+    </header>
+
+    <div class="hub__grid">
+
+      <a class="hub__card" href="pages/la-distillerie.html">
+        <div class="hub__thumb">01</div>
+        <div class="hub__meta">
+          <span class="hub__num">01</span>
+          <span class="hub__name">La Distillerie</span>
+          <span class="hub__desc">Hero · 3 piliers · Newsletter</span>
+        </div>
+      </a>
+
+      <a class="hub__card" href="pages/produit/whisky-01b.html">
+        <div class="hub__thumb">02</div>
+        <div class="hub__meta">
+          <span class="hub__num">02 · Produit</span>
+          <span class="hub__name">Whisky 01ᵦ</span>
+          <span class="hub__desc">Hero · Slider symboles · Specs · SAQ/LCBO</span>
+        </div>
+      </a>
+
+      <a class="hub__card hub__card--soon">
+        <div class="hub__thumb">03</div>
+        <div class="hub__meta">
+          <span class="hub__num">03 · À venir</span>
+          <span class="hub__name">Contact</span>
+          <span class="hub__desc">Formulaire · points de vente</span>
+        </div>
+      </a>
+
+    </div>
+
+    <footer class="hub__footer">
+      <p>Tokens partagés : <code>/shared/tokens.css</code> &nbsp;·&nbsp; Layout : <code>/shared/chrome.css</code> &nbsp;·&nbsp; Outils intégrateur : <code>/shared/dev-mode.js</code></p>
+      <p>Démarrer le serveur : <code>node serve.mjs</code></p>
+    </footer>
+  </div>
+</body>
+</html>

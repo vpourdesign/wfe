@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WfE — La Distillerie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared/tokens.css">
+  <link rel="stylesheet" href="../shared/chrome.css">
+  <link rel="stylesheet" href="../shared/dev-mode.css">
+  <script>window.WFE_SHARED = '../shared/'; window.WFE_HUB = '../index.html';</script>
+</head>
+<body>
+
+<div class="wfe-layout">
+
+  <!-- ========================================================= -->
+  <!-- SIDEBAR — fixed, bg image couvre tout le panneau            -->
+  <!-- ========================================================= -->
+  <aside class="wfe-sidebar" data-block="Sidebar">
+    <a href="../index.html" class="wfe-sidebar__logo" aria-label="WfE — Retour à l'accueil">
+      <img src="../logo.svg" alt="WfE — Whisky For Everyone">
+      <small>Whisky pour tous</small>
+    </a>
+
+    <nav class="wfe-sidebar__nav" aria-label="Principale">
+      <a href="la-distillerie.html" class="wfe-sidebar__nav-item" aria-current="page">
+        <span class="wfe-sidebar__nav-num">01</span>
+        <span class="wfe-sidebar__nav-label">La Distillerie</span>
+      </a>
+      <a href="le-whisky.html" class="wfe-sidebar__nav-item">
+        <span class="wfe-sidebar__nav-num">02</span>
+        <span class="wfe-sidebar__nav-label">Le Whisky</span>
+      </a>
+      <a href="contact.html" class="wfe-sidebar__nav-item">
+        <span class="wfe-sidebar__nav-num">03</span>
+        <span class="wfe-sidebar__nav-label">Contact</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ========================================================= -->
+  <!-- MAIN (scroll naturel)                                       -->
+  <!-- ========================================================= -->
+  <main class="wfe-main">
+
+    <div class="wfe-topbar" data-block="Top bar — langue">
+      <a href="#" class="wfe-topbar__lang">EN</a>
+    </div>
+
+    <section class="wfe-hero" data-block="Hero — Invitant">
+      <strong class="wfe-hero__title">INVITANT.</strong>
+      <div class="wfe-hero__body">
+        <p>Prenez place et détendez-vous.<br>
+           Vous êtes invité à découvrir un whisky soyeux et rassembleur, qui ose aller plus loin que la tradition.</p>
+        <p>Pur, sur glace ou en cocktail, c'est votre moment. Profitez-en à votre façon. Chez WfE, il n'y a pas de bonne ou de mauvaise façon d'apprécier un whisky.</p>
+        <p>Seulement la vôtre.</p>
+      </div>
+      <a href="#accessible" class="wfe-hero__scroll" aria-label="Faire défiler">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </section>
+
+    <div class="wfe-feature-image" data-block="Image pleine largeur — hero">
+      <img src="../assets/images/sidebar-bg.jpg" alt="Whisky servi dans un verre">
+    </div>
+
+    <section id="accessible" class="wfe-section" data-block="Section — Accessible">
+      <div class="wfe-section__grid wfe-section__grid--reverse">
+        <div class="wfe-section__media wfe-section__media--landscape">
+          <img src="https://placehold.co/800x550/2B1810/F7EBE8?font=oswald&text=Verre+de+whisky" alt="Image — whisky servi">
+        </div>
+        <div class="wfe-section__text">
+          <div class="wfe-separator wfe-separator--w-short wfe-separator--align-right"></div>
+          <h2 class="wfe-section__title">ACCESSIBLE.</h2>
+          <div class="wfe-section__body">
+            <p>WfE est partie d'une idée simple : le whisky peut être apprécié par tout le monde.</p>
+            <p>Ici, le whisky ne fait pas de distinction. Chaque verre offre un moment de partage et célèbre la diversité des palais, des expériences qui s'entremêlent.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wfe-section" data-block="Section — Agréable">
+      <div class="wfe-section__grid">
+        <div class="wfe-section__text">
+          <div class="wfe-separator wfe-separator--plain wfe-separator--w-30"></div>
+          <h2 class="wfe-section__title">AGRÉABLE.</h2>
+          <div class="wfe-section__body">
+            <p>Dégustez un whisky fait pour accompagner les moments de plaisir et de convivialité avec des saveurs inoubliables.</p>
+            <p>Le goût qui vous restera en mémoire sera celui des visages, des sourires et des émotions.</p>
+          </div>
+        </div>
+        <div class="wfe-section__media">
+          <img src="https://placehold.co/700x870/1a0f0a/F7EBE8?font=oswald&text=Dégustation" alt="Image — dégustation">
+        </div>
+      </div>
+    </section>
+
+    <section class="wfe-section" data-block="Section — Authentique">
+      <div class="wfe-section__grid wfe-section__grid--reverse">
+        <div class="wfe-section__media">
+          <img src="https://placehold.co/700x870/2B1810/F7EBE8?font=oswald&text=Jean-François+%26+Éric" alt="Image — les deux fondateurs">
+        </div>
+        <div class="wfe-section__text">
+          <div class="wfe-separator wfe-separator--plain wfe-separator--w-50"></div>
+          <h2 class="wfe-section__title">AUTHENTIQUE.</h2>
+          <div class="wfe-section__body">
+            <p>Mariant l'audace au savoir-faire traditionnel, nous créons une expérience partagée qui dépasse les cercles privilégiés.</p>
+            <p>Chaque bouteille distille l'essence d'une alchimie entre deux esprits passionnés : <strong>Jean-François et Éric.</strong></p>
+            <p><strong>Jean-François,</strong> maître distillateur, a affiné son expertise au fil d'un parcours jalonné d'expériences riches, de formations réputées et de rencontres déterminantes. Formé à l'Université Heriot-Watt en Écosse, il s'est imprégné du savoir-faire des grandes distilleries écossaises, tout en s'inspirant de l'audace et de l'ingéniosité des microdistilleries québécoises pour forger sa propre signature. Sa démarche conjugue la rigueur traditionnelle à une sensibilité contemporaine, donnant naissance à des whiskies d'une élégance et d'une profondeur exceptionnelles.</p>
+            <p><strong>Éric,</strong> de son côté, insuffle à chaque création une véritable vision artistique. Animé par le désir d'offrir une expérience singulière, il cherche à créer des instants de partage où se célèbrent la rencontre, les émotions et le plaisir des sens. Pour lui, le whisky est bien plus qu'un spiritueux : c'est un catalyseur de liens, un prétexte à la convivialité, où chaque moment se teinte d'une saveur unique et mémorable.</p>
+            <p>Ensemble, ils revisitent les grands classiques pour donner vie à des whiskies à la fois accessibles et empreints de subtilité, dont les arômes marquent durablement les sens.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wfe-footer" data-block="Footer — Newsletter">
+      <h2 class="wfe-footer__lead">Le meilleur reste à venir.</h2>
+      <p class="wfe-footer__sub">Abonnez-vous pour être les premiers informés.</p>
+      <form class="wfe-newsletter" onsubmit="event.preventDefault();">
+        <input type="email" class="wfe-newsletter__input" placeholder="info@distilleriewfe.com" required>
+        <button type="submit" class="wfe-newsletter__submit">Inscrivez-vous</button>
+      </form>
+      <p class="wfe-colophon">© 2026, Distillerie WfE</p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="../shared/dev-mode.js" defer></script>
+</body>
+</html>
