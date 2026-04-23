@@ -202,11 +202,11 @@
 }
 
 /* ========================================================================= */
-/* HERO PRODUIT (dark, deux colonnes : titre + photo bouteille)              */
+/* HERO PRODUIT (LIGHT — fond blanc, deux colonnes : titre + photo bouteille)*/
 /* ========================================================================= */
 .wfe-product-hero {
-  background: var(--wfe-dark-nav);
-  color: var(--wfe-text-on-dark);
+  background: #ffffff;
+  color: var(--wfe-text-on-cream);
   padding: 60px 40px 80px;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -221,8 +221,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 30% 20%, rgba(188,73,39,0.12), transparent 60%),
-    radial-gradient(ellipse at 80% 80%, rgba(70,100,140,0.2), transparent 60%);
+    radial-gradient(ellipse at 30% 20%, rgba(188, 73, 39, 0.06), transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(188, 73, 39, 0.04), transparent 60%);
   pointer-events: none;
 }
 .wfe-product-hero__text { position: relative; z-index: 1; }
@@ -245,7 +245,7 @@
   margin: 0 0 28px;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--wfe-dark-nav);
 }
 .wfe-product-hero__title em {
   font-style: normal;
@@ -258,7 +258,7 @@
   font-size: clamp(16px, 1.8vw, 20px);
   line-height: 1.5;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--wfe-text-on-cream);
   margin: 0 0 36px;
   max-width: 42ch;
 }
@@ -271,7 +271,7 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--wfe-text-on-cream-muted);
 }
 .wfe-product-hero__meta span strong {
   display: block;
@@ -282,6 +282,18 @@
   letter-spacing: 0.02em;
   text-transform: none;
   margin-top: 4px;
+}
+
+/* Ghost button adapté au fond clair du hero produit ---------------------- */
+.wfe-product-hero .wfe-btn--ghost {
+  background: transparent;
+  color: var(--wfe-coral);
+  border-color: var(--wfe-coral);
+}
+.wfe-product-hero .wfe-btn--ghost:hover {
+  background: var(--wfe-coral);
+  color: #fff;
+  border-color: var(--wfe-coral);
 }
 
 .wfe-btn-row {
@@ -332,7 +344,9 @@
   max-height: 80vh;
   width: auto;
   margin: 0 auto;
-  filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.6));
+  filter:
+    drop-shadow(0 8px 16px rgba(14, 29, 45, 0.12))
+    drop-shadow(0 30px 50px rgba(14, 29, 45, 0.18));
 }
 
 @media (max-width: 860px) {
@@ -691,9 +705,10 @@
 /* PARTENAIRE — Val Caudalie                                                 */
 /* ========================================================================= */
 .wfe-partner {
-  background: var(--wfe-cream-2, #F1DFD9);
+  background: var(--wfe-dark-nav);
   padding: 80px 40px;
   text-align: center;
+  color: var(--wfe-text-on-dark);
 }
 .wfe-partner__inner {
   max-width: 720px;
@@ -710,7 +725,7 @@
 .wfe-partner__title {
   font-family: var(--wfe-font-display);
   font-size: clamp(24px, 3vw, 36px);
-  color: var(--wfe-coral);
+  color: #fff;
   line-height: 1.15;
   font-weight: 600;
   margin: 0 0 20px;
@@ -720,7 +735,7 @@
 .wfe-partner__body {
   font-size: 17px;
   line-height: 1.7;
-  color: var(--wfe-coral);
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 300;
   margin: 0;
 }
