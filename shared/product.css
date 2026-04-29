@@ -928,7 +928,9 @@
     0 4px 12px rgba(14, 29, 45, 0.08),
     0 30px 60px rgba(14, 29, 45, 0.18);
 }
-.wfe-welcome__media img {
+.wfe-welcome__media > img,
+.wfe-welcome__media > .dev-media-wrap,
+.wfe-welcome__media > .dev-media-wrap > img {
   position: absolute;
   inset: 0;
   width: 100%;
