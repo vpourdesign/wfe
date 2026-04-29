@@ -951,7 +951,10 @@
 /* MANIFESTO (page Distillerie — anaphore « Envie de… »)                     */
 /* ========================================================================= */
 .wfe-manifesto {
-  background: var(--wfe-cream);
+  background:
+    linear-gradient(rgba(247, 235, 232, 0.8), rgba(247, 235, 232, 0.8)),
+    url('../photos/web/SDoyonPhotographe_WfE_Distillerie-8815.jpg') center/cover no-repeat,
+    var(--wfe-cream);
   padding: clamp(80px, 10vw, 140px) 40px;
   position: relative;
   overflow: hidden;
