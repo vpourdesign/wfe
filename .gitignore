@@ -11,3 +11,9 @@ temporary screenshots/
 
 # Dossiers de travail locaux
 Sophie Doyon/
+socialmedia/
+
+# Photos originales lourdes — on ne pousse que la version web optimisée
+photos/*
+!photos/web/
+!photos/web/**

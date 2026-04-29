@@ -118,7 +118,7 @@
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
   font-weight: 400;
-  margin: 0 0 18px;
+  margin: 0 0 8px;
 }
 
 /* Titre : bloc inline, ligne mince positionnée SOUS le titre */
@@ -190,6 +190,21 @@
   .wfe-chapter-hero__cta { font-size: 12px; padding: 14px 20px; letter-spacing: 0.15em; }
 }
 
+/* Variante : dégradé gauche→droite (noir foncé à gauche, transparent à droite) */
+/* Remplace les overlays par défaut pour mettre le titre en valeur côté gauche  */
+.wfe-chapter-hero--fade-left::before {
+  background:
+    linear-gradient(90deg,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.55) 30%,
+      rgba(0, 0, 0, 0.20) 60%,
+      rgba(0, 0, 0, 0) 100%);
+  mix-blend-mode: normal;
+}
+.wfe-chapter-hero--fade-left::after {
+  background: none;
+}
+
 /* Indice subscript pour le "B" de 01ᵦ */
 .wfe-sub {
   font-size: 0.45em;
@@ -233,19 +248,19 @@
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--wfe-coral);
-  margin: 0 0 20px;
+  margin: 0 0 8px;
   font-weight: 500;
 }
 
 .wfe-product-hero__title {
   font-family: var(--wfe-font-display);
-  font-size: clamp(48px, 8vw, 96px);
-  line-height: 0.95;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
   font-weight: 600;
   margin: 0 0 28px;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: var(--wfe-dark-nav);
+  color: var(--wfe-coral);
 }
 .wfe-product-hero__title em {
   font-style: normal;
@@ -377,7 +392,7 @@
   text-transform: uppercase;
   color: var(--wfe-coral);
   font-weight: 500;
-  margin: 0 0 20px;
+  margin: 0 0 8px;
 }
 .wfe-lead__title {
   font-family: var(--wfe-font-display);
@@ -499,7 +514,7 @@
   text-transform: uppercase;
   color: var(--wfe-coral);
   font-weight: 500;
-  margin: 0 0 20px;
+  margin: 0 0 8px;
 }
 .wfe-mysteries__title {
   font-family: var(--wfe-font-display);
@@ -657,7 +672,7 @@
   text-transform: uppercase;
   color: var(--wfe-coral);
   font-weight: 500;
-  margin: 0 0 16px;
+  margin: 0 0 8px;
 }
 .wfe-profile__media {
   aspect-ratio: 4 / 5;
@@ -720,7 +735,7 @@
   text-transform: uppercase;
   color: var(--wfe-coral);
   font-weight: 500;
-  margin: 0 0 16px;
+  margin: 0 0 8px;
 }
 .wfe-partner__title {
   font-family: var(--wfe-font-display);
@@ -812,7 +827,7 @@
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
-  margin: 0 0 18px;
+  margin: 0 0 8px;
 }
 .wfe-cta__title {
   font-family: var(--wfe-font-display);
@@ -851,4 +866,418 @@
   background: #fff;
   color: var(--wfe-coral);
   border-color: #fff;
+}
+
+/* ========================================================================= */
+/* WELCOME (page Distillerie — fond clair, deux colonnes)                    */
+/* ========================================================================= */
+.wfe-welcome {
+  background: #ffffff;
+  padding: 110px 40px;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.wfe-welcome__eyebrow {
+  font-family: var(--wfe-font-body);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+.wfe-welcome__title {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 0 0 32px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+}
+.wfe-welcome__title em {
+  font-style: normal;
+  font-weight: inherit;
+  color: inherit;
+}
+.wfe-welcome__body {
+  font-family: var(--wfe-font-body);
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.65;
+  color: var(--wfe-text-on-cream);
+  font-weight: 300;
+  max-width: 44ch;
+}
+.wfe-welcome__body p { margin: 0 0 18px; }
+.wfe-welcome__body p:last-child { margin-bottom: 0; }
+.wfe-welcome__body strong {
+  color: var(--wfe-coral);
+  font-weight: 500;
+}
+.wfe-welcome__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow:
+    0 4px 12px rgba(14, 29, 45, 0.08),
+    0 30px 60px rgba(14, 29, 45, 0.18);
+}
+.wfe-welcome__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+@media (max-width: 860px) {
+  .wfe-welcome {
+    grid-template-columns: 1fr;
+    padding: 70px 25px;
+    gap: 40px;
+  }
+}
+
+/* ========================================================================= */
+/* MANIFESTO (page Distillerie — anaphore « Envie de… »)                     */
+/* ========================================================================= */
+.wfe-manifesto {
+  background: var(--wfe-cream);
+  padding: clamp(80px, 10vw, 140px) 40px;
+  position: relative;
+  overflow: hidden;
+}
+.wfe-manifesto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(188, 73, 39, 0.05), transparent 55%),
+    radial-gradient(ellipse at 85% 80%, rgba(188, 73, 39, 0.04), transparent 55%);
+  pointer-events: none;
+}
+.wfe-manifesto__inner {
+  max-width: 880px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.wfe-manifesto__eyebrow {
+  font-family: var(--wfe-font-body);
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  font-weight: 500;
+  margin: 0 0 8px;
+  text-align: center;
+}
+.wfe-manifesto__intro {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  text-align: center;
+  margin: 0 0 clamp(50px, 7vw, 90px);
+}
+.wfe-manifesto__intro em {
+  font-style: normal;
+  color: inherit;
+  font-weight: inherit;
+}
+.wfe-manifesto__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 44px);
+}
+.wfe-manifesto__item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 4vw, 56px);
+  padding-bottom: clamp(28px, 4vw, 44px);
+  border-bottom: 1px solid rgba(188, 73, 39, 0.18);
+  align-items: baseline;
+}
+.wfe-manifesto__item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.wfe-manifesto__envie {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(22px, 2.4vw, 32px);
+  line-height: 1.05;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  color: var(--wfe-coral);
+  margin: 0;
+}
+.wfe-manifesto__envie em {
+  font-style: italic;
+  color: var(--wfe-dark-nav);
+  font-weight: inherit;
+}
+.wfe-manifesto__detail {
+  font-family: var(--wfe-font-body);
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.55;
+  color: var(--wfe-text-on-cream);
+  font-weight: 300;
+  margin: 0;
+}
+.wfe-manifesto__detail span {
+  display: block;
+}
+.wfe-manifesto__outro {
+  margin: clamp(60px, 8vw, 100px) auto 0;
+  text-align: center;
+  font-family: var(--wfe-font-display);
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--wfe-coral);
+  max-width: 22ch;
+}
+.wfe-manifesto__outro strong {
+  display: block;
+  color: inherit;
+  font-weight: inherit;
+  margin-top: 14px;
+}
+
+@media (max-width: 720px) {
+  .wfe-manifesto__item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-bottom: 26px;
+  }
+}
+
+/* ========================================================================= */
+/* GALLERY masonry (page Distillerie — colonnes CSS, hauteurs naturelles)    */
+/* ========================================================================= */
+.wfe-gallery {
+  background: #ffffff;
+  padding: clamp(60px, 8vw, 110px) clamp(20px, 3vw, 50px);
+  position: relative;
+}
+.wfe-gallery__head {
+  max-width: 720px;
+  margin: 0 auto clamp(40px, 5vw, 70px);
+  text-align: center;
+}
+.wfe-gallery__eyebrow {
+  font-family: var(--wfe-font-body);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+.wfe-gallery__title {
+  font-family: var(--wfe-font-display);
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--wfe-coral);
+  margin: 0;
+}
+.wfe-gallery__grid {
+  column-count: 3;
+  column-gap: clamp(10px, 1.4vw, 18px);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.wfe-gallery__item {
+  break-inside: avoid;
+  margin: 0 0 clamp(10px, 1.4vw, 18px);
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow:
+    0 2px 6px rgba(14, 29, 45, 0.06),
+    0 14px 36px rgba(14, 29, 45, 0.10);
+  display: block;
+}
+.wfe-gallery__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wfe-gallery__item:hover img { transform: scale(1.04); }
+
+@media (max-width: 1024px) {
+  .wfe-gallery__grid { column-count: 2; }
+}
+@media (max-width: 600px) {
+  .wfe-gallery__grid { column-count: 1; }
+}
+
+/* ========================================================================= */
+/* BANDEAU IMAGE pleine largeur (séparateur visuel)                          */
+/* ========================================================================= */
+.wfe-bandeau {
+  position: relative;
+  width: 100%;
+  height: clamp(360px, 60vh, 620px);
+  overflow: hidden;
+}
+.wfe-bandeau img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wfe-bandeau:hover img { transform: scale(1.06); }
+.wfe-bandeau::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 29, 45, 0.15) 0%, rgba(14, 29, 45, 0.45) 100%);
+  pointer-events: none;
+}
+.wfe-bandeau__caption {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  z-index: 1;
+  color: #fff;
+  font-family: var(--wfe-font-body);
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 400;
+  opacity: 0.85;
+  max-width: 360px;
+}
+
+/* Ajustement : la promesse (wfe-lead) sur la page Distillerie passe en sombre */
+.wfe-lead--dark {
+  background: var(--wfe-dark-nav);
+  color: var(--wfe-text-on-dark);
+  max-width: none;
+  padding: clamp(80px, 10vw, 130px) clamp(30px, 6vw, 90px);
+  position: relative;
+  overflow: hidden;
+}
+.wfe-lead--dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(50, 80, 130, 0.3), transparent 60%),
+    radial-gradient(ellipse at 80% 70%, rgba(20, 35, 60, 0.7), transparent 65%);
+  pointer-events: none;
+}
+.wfe-lead--dark > * { position: relative; z-index: 1; }
+.wfe-lead--dark .wfe-lead__eyebrow { color: var(--wfe-coral); }
+.wfe-lead--dark .wfe-lead__title { color: #fff; }
+.wfe-lead--dark .wfe-lead__title em { color: var(--wfe-coral); }
+.wfe-lead--dark .wfe-lead__body { color: rgba(255, 255, 255, 0.85); }
+
+/* ===========================================================
+   LIGHTBOX — clic sur galerie pour agrandir
+   =========================================================== */
+.wfe-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8, 14, 22, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+  padding: 40px;
+}
+.wfe-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.wfe-lightbox__stage {
+  margin: 0;
+  max-width: min(1400px, 95vw);
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.96);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wfe-lightbox.is-open .wfe-lightbox__stage { transform: scale(1); }
+.wfe-lightbox__img {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+.wfe-lightbox__close,
+.wfe-lightbox__nav {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+  padding: 0;
+}
+.wfe-lightbox__close:hover,
+.wfe-lightbox__nav:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.06);
+}
+.wfe-lightbox__close svg,
+.wfe-lightbox__nav svg {
+  width: 22px;
+  height: 22px;
+}
+.wfe-lightbox__close {
+  top: 24px;
+  right: 24px;
+}
+.wfe-lightbox__nav--prev { left: 24px; }
+.wfe-lightbox__nav--next { right: 24px; }
+.wfe-lightbox__nav { top: 50%; transform: translateY(-50%); }
+.wfe-lightbox__nav:hover { transform: translateY(-50%) scale(1.06); }
+
+@media (max-width: 700px) {
+  .wfe-lightbox { padding: 16px; }
+  .wfe-lightbox__close { top: 12px; right: 12px; }
+  .wfe-lightbox__nav--prev { left: 8px; }
+  .wfe-lightbox__nav--next { right: 8px; }
+  .wfe-lightbox__close,
+  .wfe-lightbox__nav { width: 40px; height: 40px; }
 }
