@@ -147,11 +147,10 @@ body.dev-mode [data-block]:hover > .dev-block-toolbar { display: flex; }
 
 /* Media wrappers + toolbars --------------------------------------------- */
 .dev-media-wrap {
-  position: relative;
-  display: block;
+  display: contents;
 }
 
-.dev-media-wrap.is-inline { display: inline-block; }
+.dev-media-wrap.is-inline { display: contents; }
 
 .dev-media-toolbar {
   position: absolute;
