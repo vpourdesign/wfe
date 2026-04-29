@@ -929,6 +929,7 @@
   box-shadow:
     0 4px 12px rgba(14, 29, 45, 0.08),
     0 30px 60px rgba(14, 29, 45, 0.18);
+  order: -1;
 }
 .wfe-welcome__media img {
   position: absolute;
