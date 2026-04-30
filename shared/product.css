@@ -195,10 +195,10 @@
 .wfe-chapter-hero--fade-left::before {
   background:
     linear-gradient(90deg,
-      rgba(0, 0, 0, 0.78) 0%,
-      rgba(0, 0, 0, 0.55) 30%,
-      rgba(0, 0, 0, 0.20) 60%,
-      rgba(0, 0, 0, 0) 100%);
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(0, 0, 0, 0.78) 30%,
+      rgba(0, 0, 0, 0.45) 60%,
+      rgba(0, 0, 0, 0.20) 100%);
   mix-blend-mode: normal;
 }
 .wfe-chapter-hero--fade-left::after {
